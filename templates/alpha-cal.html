@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DB Frontend Enhancement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
+    <link href="..\static\css\style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header class="page__header">
+        <div class="header__left"></div>
+        <div class="header__center">
+            <p>
+            <h1>DB Calendaring Project</h1>
+            </p>
+            <p>
+                JavaScript was used to speed up data entry and calendaring in an existing database front end
+                (Alpha Five / SQL Server).
+            </p>
+        </div>
+        <div class="header__right"><a class="nav" href="https://web-chess-piece-moves.herokuapp.com/">
+            Chess Moves Project</a></div>
+    </header>
+    <main>
+        <section class="section">
+            <div class="container is-max-desktop">
+                The Start Date is taken from a legally binding agreement to settle an intellectual property dispute
+                including
+                payment for release of liability. Optional provisions can include making installment payments, required
+                purchase of products within a certain time frame, and a certification of continued compliance.
+                Reminders are scheduled for each provision; they are interdependent and cannot be calculated from the
+                Start Date alone.
+                Alpha Five sends field values to the SQL database.
+            </div>
+        </section>
+
+        <section class="section columns notification is-vcentered">
+            <div class="column is-one-fifth">
+            </div>
+            <div class="column has-text-centered">
+                <form method="get" style="display: inline;">
+                    <label for="start-date">Enter Start Date MM/DD/YYYY</label>
+                    <input autofocus type="date" placeholder="MM/DD/YYYY" id="start-date">
+                </form>
+            </div>
+            <div class="column has-text-centered">
+                <button id="addMonths" onclick="addMonths()" class="button is-primary">Calculate</button>
+            </div>
+            <div class="column is-one-fifth">
+            </div>
+        </section>
+
+        <section>
+            <h3 class="has-text-centered">Results</h3>
+        </section>
+
+        <section class="section columns notification is-vcentered">
+            <div class="column has-text-centered">
+                <label for="installments-yes-no">Installment Payments?</label>
+                <select name="installments-yes-no" id="installments-yes-no">
+                    <option value="Null"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="column has-text-centered">
+                <form class="mx-0">
+                    <label for="installments-count">Number of Monthly Installments</label>
+                    <input type="text" placeholder="#" id="installments-count" name="installments-count">
+                </form>
+            </div>
+            </div>
+        </section>
+
+        <section class="section columns notification is-vcentered">
+            <div class="column has-text-centered">
+                <label for="installments">Purchases Required?</label>
+                <select name="installments" id="future-purchase-y-n">
+                    <option value="Null"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="column has-text-centered">
+                <form>
+                    <label for="future-purchase-end">Purchase End Date</label>
+                    <input type="text" placeholder="MM/DD/YYYY" id="future-purchase-end" name="future-purchase-end">
+                </form><br>
+                = Start Date + Installments + Purchase Period JS prompt
+            </div>
+        </section>
+
+        <section class="section columns notification is-vcentered">
+            <div class="column has-text-centered">
+                <form>
+                    <label for="certificate-date">Certificate Date</label>
+                    <input type="text" placeholder="MM/DD/YYYY" name="certificate-date" id="certificate-date">
+                </form>
+            </div>
+            <div class="column has-text-centered">
+                <form>
+                    <label for="certificate-reminder-1">Certificate Reminder 1</label>
+                    <input type="text" placeholder="MM/DD/YYYY" name="certificate-reminder-1"
+                        id="certificate-reminder-1">
+                </form>
+            </div>
+            <div class="column has-text-centered">
+                <form>
+                    <label for="certificate-reminder-2">Certificate Reminder 2</label>
+                    <input type="text" placeholder="MM/DD/YYYY" name="certificate-reminder-2"
+                        id="certificate-reminder-2">
+                </form>
+            </div>
+        </section>
+
+        <section class="section columns notification is-vcentered">
+            <div class="column has-text-centered">
+                <form>
+                    <label for="purchase-reminder-1">Purchase Reminder 1 Date</label>
+                    <input type="text" placeholder="MM/DD/YYYY" name="purchase-reminder-1" id="purchase-reminder-1">
+                </form><br>
+                = Start Date + Installments + 3 months if Purchase Period is between 6 and 24 months<br>
+                <p><br></p>
+                = Start Date + Installments + 6 months if Purchase Period is at least 24 months<br>
+                <p><br></p>
+                = Certificate Reminder 1 Date if they are within 45 days of each other
+            </div>
+            <div class="column has-text-centered">
+                <form>
+                    <label for="purchase-reminder-2">Purchase Reminder 2 Date</label>
+                    <input type="text" placeholder="MM/DD/YYYY" name="purchase-reminder-2" id="purchase-reminder-2">
+                </form><br>
+                = Purchase Reminder 1 Date + 6 months<br>
+                <p><br></p>
+                = Certificate Reminder 1 Date if they are within 45 days of each other
+            </div>
+            <div class="column has-text-centered">
+                <form>
+                    <label for="purchase-reminder-3">Purchase Reminder 3 Date</label>
+                    <input type="text" placeholder="MM/DD/YYYY" name="purchase-reminder-3" id="purchase-reminder-3">
+                </form><br>
+                = Purchase Reminder 1 Date + 12 months<br>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container is-max-desktop">
+                Each of the fields above required manual calculation and typing.
+                The instructions had to be memorized or found in a separate location as the notes on this page aren't on
+                the real page.
+                The JavaScript addition saved time, reduced errors, and allowed new users to easily learn the system.
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <section class="left">
+                <p class="footer__item__left">Varigarble</a>
+                <p class="footer__item__left">2023</a>
+            </section>
+            <section class="right">
+                <div class="footer__column">
+                    <p class="footer__item__middle">Source code:</a>
+                    <p class="footer__item__middle">Contact:</p>
+                </div>
+                <div class="footer__column">
+                    <a class="footer__item__right" href="https://github.com/Varigarble?tab=repositories">GitHub</a>
+                    <a class="footer__item__right"
+                        href="https://www.linkedin.com/in/gabriel-canevari-7a93a4133/">LinkedIn</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+    <script src="..\static\scripts\alpha-cal.js"></script>
+</body>
+
+</html>

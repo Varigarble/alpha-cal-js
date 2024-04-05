@@ -4,6 +4,7 @@ html {
     margin: 0;
     padding: 0;
     background-position-y: top;
+    overflow-x: scroll;
 }
 
 body {
@@ -207,7 +208,25 @@ input {
     text-shadow: 1px 1px 1px black;
     text-align:right;
     text-decoration: underline;
-    position: absolute;
-    top: 10%;
-    right: 20%;
+}
+
+.header__right_content {
+        position: absolute;
+        top: 10%;
+        right: 20%;
+}
+
+.number{
+    align-items: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+    display: inherit;
+    font-size: inherit;
+    height: inherit;
+    justify-content: inherit;
+    margin-right: inherit;
+    min-width: inherit;
+    padding: inherit;
+    text-align: inherit;
+    vertical-align: inherit;
 }
